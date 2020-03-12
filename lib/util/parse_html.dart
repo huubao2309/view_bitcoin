@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:view_bitcoin/model/title_table.dart';
