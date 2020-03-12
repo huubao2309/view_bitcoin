@@ -39,20 +39,17 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
   final coinDataList = <BitCoin>[];
   final bitcoinStream = StreamController<List<BitCoin>>();
 
-  bool _isFirstLoad = false;
-
   @override
   void initState() {
     super.initState();
 
-    if (!_isFirstLoad) {
-      getCoinInfo();
-    } else {
-      // runs every 1 second
-      Timer.periodic(new Duration(seconds: 5), (timer) {
+    // runs every 1 second
+    Timer.periodic(
+      new Duration(seconds: 5),
+      (timer) {
         getCoinInfo();
-      });
-    }
+      },
+    );
   }
 
   @override
@@ -176,7 +173,6 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
   }
 
   Widget _buildGoldInfoRow(BitCoin bitCoin, int index) {
-    //416c7e
     return Container(
       height: 70,
       color: const Color(0xff0C3150),
@@ -252,11 +248,16 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
     final document = parse(response.body);
     final divStr = document.querySelectorAll("div");
 
+    // Clear list
+    if (coinDataList.length != 0) {
+      coinDataList.clear();
+    }
+
     for (final divParent in divStr) {
       try {
         if (divParent.className == Utils.div1) {
           for (final element in divParent.children) {
-            if (element.className == Utils.div2 && _isFirstLoad == false) {
+            if (element.className == Utils.div2) {
               titleList = TitleList(
                 stt: element.children[0].text,
                 symbol: element.children[1].text,
@@ -273,7 +274,6 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 liqAsk: element.children[12].text,
                 liqRatio: element.children[13].text,
               );
-              _isFirstLoad = true;
             } else {
               // A Element a
               var valueCoin = BitCoin(
@@ -292,6 +292,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 liqAsk: element.children[12].text,
                 liqRatio: element.children[13].text,
               );
+
               coinDataList.add(valueCoin);
             }
           }
