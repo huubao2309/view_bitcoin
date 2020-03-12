@@ -1,4 +1,6 @@
-class BitCoin {
+import 'package:flutter/cupertino.dart';
+
+class TitleList {
   String stt;
   String symbol;
   String name;
@@ -14,7 +16,7 @@ class BitCoin {
   String liqAsk;
   String liqRatio;
 
-  BitCoin({
+  TitleList({
     this.stt,
     this.symbol,
     this.name,
