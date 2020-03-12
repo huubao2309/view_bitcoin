@@ -128,6 +128,21 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
               color: Colors.black,
               child: Center(
                 child: Text(
+                  title.symbol,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              height: 70,
+              color: Colors.black,
+              child: Center(
+                child: Text(
                   title.price,
                   style: TextStyle(
                     color: Colors.white,
@@ -186,6 +201,22 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              height: 70,
+              color: Colors.brown,
+              child: Center(
+                child: Text(
+                  bitCoin.symbol,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight:
+                        index == 0 ? FontWeight.bold : FontWeight.normal,
+                  ),
                 ),
               ),
             ),
