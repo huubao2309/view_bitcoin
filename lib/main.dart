@@ -5,11 +5,7 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:view_bitcoin/model/title_table.dart';
 import 'package:view_bitcoin/util/link_source.dart';
-import 'package:view_bitcoin/util/parse_html.dart';
 
-import 'model/bitcoin.dart';
-import 'model/bitcoin.dart';
-import 'model/bitcoin.dart';
 import 'model/bitcoin.dart';
 
 void main() => runApp(MyApp());
