@@ -1,16 +1,39 @@
-# view_bitcoin
+# View Bitcoin Price RealTime
 
-A new Flutter project.
+Library: 
++ [http 0.12.0+4](https://pub.dev/packages/http)
++ [html 0.14.0+3](https://pub.dev/packages/html)
 
-## Getting Started
+![Demo_Price_Coin](https://github.com/huubao2309/view_bitcoin/blob/master/images/gif_load_html.gif)
 
-This project is a starting point for a Flutter application.
+## Setup
 
-A few resources to get you started if this is your first Flutter project:
+### 1. Setup lib at `pubspec.yaml` file:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```dart
+dependencies:
+  html: ^0.14.0+3
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 2. Download html file:
+
+Link html download: [https://cryptowat.ch/](https://cryptowat.ch/)
+
+**Parse html**:
+
+```dart
+    ...
+    final client = Client();
+    var response = await client.get(Utils.linkURL); // with linkURL = 'https://cryptowat.ch/'
+    final document = parse(response.body);
+    final divStr = document.querySelectorAll("div");
+    
+    for (final divParent in divStr) {
+      // ... Parse data to html
+    }
+    ...
+```
+
+### 3. Load Data on ListView:
+
+...
