@@ -59,9 +59,6 @@ class ParseHtmlLink {
               coinDataList.add(valueCoin);
             }
           }
-
-          var lenght = coinDataList.length;
-          print('Bitcoin: $lenght');
         }
       } catch (ex) {
         print(ex);
