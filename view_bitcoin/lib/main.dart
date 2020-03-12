@@ -50,6 +50,11 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
   void dispose() {
     super.dispose();
     bitcoinStream.close();
@@ -144,6 +149,21 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
               ),
             ),
           ),
+          Expanded(
+            child: Container(
+              height: 70,
+              color: Colors.black,
+              child: Center(
+                child: Text(
+                  titleList.change24H,
+                  style: TextStyle(
+                    color: const Color(0xffFBF203),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -192,6 +212,23 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                   bitCoin.marketCap,
                   style: TextStyle(
                     color: index == 0 ? const Color(0xffFBF203) : Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              height: 70,
+              color: const Color(0xff416c7e),
+              child: Center(
+                child: Text(
+                  bitCoin.change24H,
+                  style: TextStyle(
+                    color: bitCoin.change24H.contains('-')
+                        ? Colors.red
+                        : Colors.green,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
