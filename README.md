@@ -13,6 +13,7 @@ Library:
 ```dart
 dependencies:
   html: ^0.14.0+3
+  http: ^0.12.0+4
 ```
 
 ### 2. Download html file:
