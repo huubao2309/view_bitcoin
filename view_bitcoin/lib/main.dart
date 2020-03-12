@@ -43,10 +43,17 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
   final coinDataList = <BitCoin>[];
   final bitcoinStream = StreamController<List<BitCoin>>();
 
+  bool _isLoadTitle = false;
+
   @override
   void initState() {
     super.initState();
-    getCoinInfo();
+    // getCoinInfo();
+
+    // runs every 1 second
+    Timer.periodic(new Duration(seconds: 5), (timer) {
+      getCoinInfo();
+    });
   }
 
   @override
@@ -250,7 +257,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
       try {
         if (divParent.className == Utils.div1) {
           for (final element in divParent.children) {
-            if (element.className == Utils.div2) {
+            if (element.className == Utils.div2 && _isLoadTitle == false) {
               titleList = TitleList(
                 stt: element.children[0].text,
                 symbol: element.children[1].text,
@@ -267,6 +274,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 liqAsk: element.children[12].text,
                 liqRatio: element.children[13].text,
               );
+              _isLoadTitle = true;
             } else {
               // A Element a
               var valueCoin = BitCoin(
