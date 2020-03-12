@@ -92,7 +92,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
             },
             separatorBuilder: (context, index) => Container(
               height: 2,
-              color: const Color(0xffCC9900),
+              color: Colors.white,
             ),
           );
         },
@@ -115,7 +115,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 child: Text(
                   title.name,
                   style: TextStyle(
-                    color: const Color(0xffFBF203),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -130,7 +130,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 child: Text(
                   title.price,
                   style: TextStyle(
-                    color: Color(0xffFBF203),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -145,7 +145,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 child: Text(
                   titleList.marketCap,
                   style: TextStyle(
-                    color: const Color(0xffFBF203),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -160,7 +160,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                 child: Text(
                   titleList.change24H,
                   style: TextStyle(
-                    color: const Color(0xffFBF203),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -175,7 +175,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
   Widget _buildGoldInfoRow(BitCoin bitCoin, int index) {
     return Container(
       height: 70,
-      color: const Color(0xff0C3150),
+      color: Colors.black,
       child: Row(
         children: <Widget>[
           Expanded(
@@ -184,7 +184,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
               child: Text(
                 bitCoin.name,
                 style: TextStyle(
-                  color: const Color(0xffFBF203),
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -193,13 +193,14 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
           Expanded(
             child: Container(
               height: 70,
-              color: const Color(0xff416c7e),
+              color: Colors.brown,
               child: Center(
                 child: Text(
                   bitCoin.price,
                   style: TextStyle(
-                    color: index == 0 ? const Color(0xffFBF203) : Colors.white,
-                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontWeight:
+                        index == 0 ? FontWeight.bold : FontWeight.normal,
                   ),
                 ),
               ),
@@ -208,13 +209,14 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
           Expanded(
             child: Container(
               height: 70,
-              color: const Color(0xff416c7e),
+              color: Colors.brown,
               child: Center(
                 child: Text(
                   bitCoin.marketCap,
                   style: TextStyle(
-                    color: index == 0 ? const Color(0xffFBF203) : Colors.white,
-                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontWeight:
+                        index == 0 ? FontWeight.bold : FontWeight.normal,
                   ),
                 ),
               ),
@@ -223,7 +225,7 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
           Expanded(
             child: Container(
               height: 70,
-              color: const Color(0xff416c7e),
+              color: Colors.brown,
               child: Center(
                 child: Text(
                   bitCoin.change24H,
@@ -231,7 +233,8 @@ class _ViewBitcoinState extends State<ViewBitcoin> {
                     color: bitCoin.change24H.contains('-')
                         ? Colors.red
                         : Colors.green,
-                    fontWeight: FontWeight.bold,
+                    fontWeight:
+                        index == 0 ? FontWeight.bold : FontWeight.normal,
                   ),
                 ),
               ),
